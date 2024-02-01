@@ -8,7 +8,7 @@ This Python script provides information about the Python version and version det
 2. Run the script using a Python interpreter.
 
 ```bash
-python script_name.py
+python python_version.py
 ```
 
 ## Output
