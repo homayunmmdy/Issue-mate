@@ -1,4 +1,7 @@
+![stack](https://github.com/homayunmmdy/Python/assets/129702378/628fa91f-ecfb-4f3e-94c8-bcbddbfd1573)
+
 # Stack Implementation in Python
+
 
 This Python program demonstrates a basic stack implementation using a list. The stack follows the Last-In-First-Out (LIFO) order, where elements are added and removed from the top.
 
