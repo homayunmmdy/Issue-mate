@@ -1,7 +1,7 @@
 {
-  "name": "ai-bootcamp",
+  "name": "homayoun",
   "version": "0.0.1",
-  "description": "Welcome to AI machine learning data Science Bootcamp 2023",
+  "description": "Welcome to My Notes from books and course",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
