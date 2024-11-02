@@ -1,7 +1,6 @@
 {
   "name": "homayoun",
   "version": "0.0.1",
-  "description": "Welcome to My Notes from books and course",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,11 +11,6 @@
     "url": "https://github.com/homayunmmdy/AI-Bootcamp"
   },
   "author": "Homayoun ",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
-  },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
     "next": "^13.0.6",
     "nextra": "latest",
