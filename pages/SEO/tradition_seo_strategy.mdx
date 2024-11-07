@@ -87,6 +87,7 @@ yout must test put some money some place get feedback and now ads are become so 
 - CPI - Cost per install
 
 ## Basic metadata
+
 - <b>title</b> - 30-65 characters
 
 ```html
@@ -94,11 +95,60 @@ yout must test put some money some place get feedback and now ads are become so 
 ```
 
 - <b>description</b> - 120-156 characters. Brief summary of what the page is about
+
 ```html
-<meta name="description" content="Learn you some metadata for great good!"/>
+<meta name="description" content="Learn you some metadata for great good!" />
 ```
 
 - <b>keywords</b> - don't matter anymore
+
 ```html
-<meta content="keywords" content="javascript, emberjs, reactjs, angularjs"/>
+<meta content="keywords" content="javascript, emberjs, reactjs, angularjs" />
+```
+
+## Metadata Tools
+
+- Google structured Data Testing Tool - https://search.google.com/structured-data/testing-tool
+- SEO META chrome extension - http://www.seo-extension.com/
+- Facebook Opengraph debugger - https://developers.facebook.com/tools/debug
+- Twitter Card Validator - https://cards-dev.twitter.com/validator
+- Pintrest Rich Card debugger - https://developers.pinterest.com/tools/url-debugger/
+
+## Facebook Opengraph
+
+```html
+<meta property="og:url" content="http://www.nyti..01..html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="When Grea ... ink Alike" />
+<meta property="og:description" content="Does cu ... tive thinking?" />
+<meta property="og:image" content="http://static ... umbo-v2.jpg" />
+```
+
+### og:url
+- Known as <b>canonical URL</b>
+- Usually this will be the <b>desktop version</b>
+- No session variables
+- No pagination paramers or other counters
+
+example 
+Fetch URL : https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=str_1_2
+Canonical URL : https://www.amazon.com/0201633612/ref=tsm_1_fb_lk
+
+### og:type
+just search and put right type for your content
+- Impacts how your URLs get enriched in user media feeds
+- Defaults to <b>website</b>
+
+then we have title and description which is clear
+
+## og:image
+- Cached for lifetime of image URL (use caching strategy: immutable content)
+- Must provide width & height for accurate first render
+- Image size change change the way your URL is rendered!
+- Recommended for image size 1200x630
+
+```html
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="620" />
+<meta property="og:image:height" content="541" />
 ```
