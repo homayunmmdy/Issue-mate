@@ -125,23 +125,27 @@ yout must test put some money some place get feedback and now ads are become so 
 ```
 
 ### og:url
+
 - Known as <b>canonical URL</b>
 - Usually this will be the <b>desktop version</b>
 - No session variables
 - No pagination paramers or other counters
 
-example 
+example
 Fetch URL : https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=str_1_2
 Canonical URL : https://www.amazon.com/0201633612/ref=tsm_1_fb_lk
 
 ### og:type
+
 just search and put right type for your content
+
 - Impacts how your URLs get enriched in user media feeds
 - Defaults to <b>website</b>
 
 then we have title and description which is clear
 
 ## og:image
+
 - Cached for lifetime of image URL (use caching strategy: immutable content)
 - Must provide width & height for accurate first render
 - Image size change change the way your URL is rendered!
@@ -152,3 +156,23 @@ then we have title and description which is clear
 <meta property="og:image:width" content="620" />
 <meta property="og:image:height" content="541" />
 ```
+
+## Twitter cards
+
+```html
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@FrontendEndMasters" />
+<meta name="twitter:creator" content="@1Mac" />
+<meta name="twitter:image" content="https://..jpg" />
+```
+### twitter:card
+if is possible use <b>summary_large_image</b> to get more engagments and get more clicks
+we have another <b>player</b> that you must get premisson for it.
+we another call <b>app</b> which is link to app store
+
+### twitter site and create
+it's Recommended to add but maybe their change their ui and dont' put this stuff
+
+### twitter:image
+- 150x150 for summary
+- 560x300 for summary_large_image
