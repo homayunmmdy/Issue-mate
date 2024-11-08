@@ -318,3 +318,48 @@ addToHomeScreen({
   mandatory: false, // can't proceed if you don't add to homescreen
 });
 ```
+
+# How AMP Works
+
+- Keep third party JS the critical path
+- Excute AMP is asynchronously
+- Size all resources in advance
+- Don't let anything block rendering
+- All CSS is inline , and < 50KB
+- Webfonts start downloading immediately
+- resources prefetched early, but loaded lazily
+- Preconnect for downloading above-the-filed content
+
+## Special AMP considerations - Getting Started
+
+```javascript
+<script async src="https://cdn.amproject.org/v0.js"></script>
+```
+
+- AMP Runtime runs the show
+- Validates your AMP in the JS console
+  ```html
+  <style amp-boilerplate>
+    /*...*/
+  </style>
+  ```
+- Must include excatly this style block
+
+## Special AMP considerations - Images
+
+- img tag is not good enough for a few reason
+- srcset is important , and not supported everywhere
+- must know dimensions without downloading the image
+- dosen't let the AMP runtime decide when to load resources
+
+```html
+<amp-img src="welcome.jpg" alt="Welcom" height="400" width="800"> </amp-img>
+```
+
+## Special AMP considerations - Styles
+```html
+<style amp-custom>/*custome CSS*/</style>
+```
+- Inline styles must have amp-custome attribute
+- !important is not allowed
+- transition : only GPU-accelerated properties allowed(opacity, transform)
