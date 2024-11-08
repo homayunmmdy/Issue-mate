@@ -201,17 +201,120 @@ here avalibles types
 ```javascript
 <script type="application/Id+json"></script>
 ```
+
 ### What does this get us ?
+
 - Enhanced features in apps
 - Indexers don't have to guess so much about connections between things
 - More controll over the way search result look
 
 ### multiy things like
-- events 
-- products 
+
+- events
+- products
 - reviews
 - recipe
 - courses
 - breadcrumb
 
 you can go to schema.org to find the correct way of adding these
+
+## The mobile index split
+
+### Viewport
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+```
+
+with : positive integer or <b>device-width</b>
+initial-scale : positive number between 1.0 and 10.0
+maximum-scale : positive number between 1.0 and 10.0
+minimum-scale : positive number between 1.0 and 10.0
+user-scalabel : yes or no
+
+#### Fullscreen
+
+```html
+<meta name="apple-mobile-web-app-capable" content="yes" />
+```
+
+#### Black Status Bar
+
+```html
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+```
+
+#### Home Screen Title
+
+```html
+<meta name="apple-mobile-web-app-title" content="Frontend Masters" />
+```
+
+# manifest.json
+
+a JSON file that tells the browser how your Progressive Web App (PWA) should behave when installed on the user's desktop or mobile device.
+
+```html
+<link rel="manifesst" href="/mainfest.json" />
+```
+
+```json
+{
+  "name": "Frontend Master", // App name
+  "icons": [
+    {
+      // 192px squre Recommended for "add to home screen"
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      // 512px squre Recommended for startup screen
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ], // Various sizes of icon
+  "theme_color": "#2d89ef", // Title bar style
+  "background_color": "#2d89ef", // Used for startup screen
+  "display": "standalone" // Lunch as an app
+}
+```
+
+## magnifest.json - "display"
+
+fullscreen : All avalible display area is used
+standalone : Look & feel like a standalone app
+minimal-ui : <b>light browser</b> UI. Donsen't have own window
+browser : Conventional web app in browser
+
+## Home Screen icons
+
+```html
+<link href="https://placehold.it/152" size="152x152" rel="apple-touch-icon" />
+```
+
+57 : iPhone 1,2
+72 : iPad 1,2
+114 : iPhone 4(Retina)
+120 : iPhone 6 , 7 , SEO
+144 : iPad 3 (Retina)
+152 : iPad Air, Air 2 , minimal
+167 : iPad Pro
+180 : iPhone 6+ , 7+
+128 : Android Regular
+192 : Android High Res
+
+## Home Screen icons
+
+https://github.com/cubiq/add-to-homescreen
+
+```javascript
+addToHomeScreen({
+  appID: "modern.seo", // local storage name (no need to change)
+  message: "Add to home?", // the message can be customized
+  model: false, // block UI until the message is closed
+  mandatory: false, // can't proceed if you don't add to homescreen
+});
+```
