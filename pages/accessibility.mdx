@@ -70,3 +70,43 @@ if you element is out of this you can use arita-label like this
 ```html
 <div aria-label="Interactive div">Hello</div>
 ```
+
+## button
+
+look at this simple button when click it is show the hello alert
+
+```html
+<button onClick="alert('Hello')">Click ME</button>
+```
+
+but in some situation we can use button we use div like this
+
+```html
+<div onClick="alert('Hello')">Click ME</div>
+```
+
+but the proble here where screen reader click it has no idea what is the purpose of it and what is dose screen reader can not listen and understand what to
+we have nice called role button then screen reader will see it and it's read it as button
+
+```html
+<div role="button" onClick="alert('Hello')">Click ME</div>
+```
+
+also it has problem we can focus on it with keyboard for fix we need to add 
+tabindex 0 to allow HTML element to recive focus zero because work in an accessible way
+
+```html
+<div tabindex="0" role="button" onClick="alert('Hello')">Click ME</div>
+```
+
+also you need to add onkeyup for the users that use only keyboards
+
+```html
+<div tabindex="0" role="button" onClick="alert('Hello')" onkeyup="alert('Hello')">Click ME</div>
+```
+
+at the end at the aria-label to help screen reader understand the button
+
+```html
+<div aria-label="Alert the word Hello" tabindex="0" role="button" onClick="alert('Hello')" onkeyup="alert('Hello')">Click ME</div>
+```
