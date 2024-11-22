@@ -23,3 +23,50 @@ so here are tags that don effect like
 - textarea
 
 also try to use the right h tag as much as you need for example do not use it just for size use when ever need and modified based on size
+
+## Form Labels
+
+easy but with the big impact here is the most comon Form
+
+```html
+<form>
+  <p>First Name</p>
+  <input type="text" />
+  <p>Last Name</p>
+  <input type="text" />
+  <p>Password</p>
+  <input type="password" />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+this is good for nomarl users but try to use label inside of those p that that dose other with problem can understand this
+
+```html
+<form>
+  <label for="first">First Name</label>
+  <input id="first" type="text" />
+  <label for="last">Last Name</label>
+  <input id="last" type="text" />
+  <label for="password">Password</label>
+  <input id="password" type="password" />
+  <input type="submit" value="Submit" />
+</form>
+```
+
+label is very good it's only worked on
+
+- button
+- input
+- keygen
+- meter
+- output
+- Progressive
+- select
+- textarea
+
+if you element is out of this you can use arita-label like this
+
+```html
+<div aria-label="Interactive div">Hello</div>
+```
