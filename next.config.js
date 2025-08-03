@@ -1,6 +1,15 @@
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
-})
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+   async headers() {
+      return [
+         {
+            source: '/:path*',
+            headers: [
+               { key: 'referrer-policy', value: 'no-referrer'}
+            ]
+         }
+      ]
+   }
+}
 
-module.exports = withNextra()
+module.exports = nextConfig
