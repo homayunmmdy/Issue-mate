@@ -11,10 +11,10 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import SimpleMDE from "react-simplemde-editor";
 import { z } from "zod";
-
 type IssueForm = z.infer<typeof createIssueSchema>;
 
 function NewIssuePage() {
+
   const router = useRouter();
   const {
     register,
