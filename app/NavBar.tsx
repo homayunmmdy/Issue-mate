@@ -74,7 +74,7 @@ const AuthStatus = () => {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <Avatar
-            src={session!.user!.image!}
+            src={session?.user!.image!}
             className="cursor-pointer"
             fallback="?"
             size="2"
@@ -84,7 +84,7 @@ const AuthStatus = () => {
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Label>
-            <Text size="2">{session!.user!.email}</Text>
+            <Text size="2">{session?.user!.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
             <Link href="/api/auth/signout">Log out</Link>
