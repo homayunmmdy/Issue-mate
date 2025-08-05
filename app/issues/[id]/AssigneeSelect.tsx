@@ -5,12 +5,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const AssigneeSelect = () => {
-  const [users, setUser] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       const { data } = await axios.get<User[]>("/api/users");
-      setUser(data);
+      setUsers(data);
     };
 
     fetchUsers();
@@ -21,7 +21,7 @@ const AssigneeSelect = () => {
       <Select.Content>
         <Select.Group>
           <Select.Label>Suggestions</Select.Label>
-          {users.map((user) => (
+          {users.map(user => (
             <Select.Item key={user.id} value={user.id}>
               {user.name}
             </Select.Item>
