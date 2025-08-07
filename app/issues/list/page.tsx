@@ -1,13 +1,25 @@
 import { IssueStatusBadge, Link } from "@/app/components";
 import prisma from "@/prisma/client";
-import { Status } from "@prisma/client";
+import { Issue, Status } from "@prisma/client";
+import { ArrowUpIcon } from "@radix-ui/react-icons";
 import { Table } from "@radix-ui/themes";
+import NextLink from "next/link";
 import IssueActions from "./IssueActions";
 
 interface Props {
-  searchParams: { status: Status };
+  searchParams: { status: Status; orderBy: keyof Issue };
 }
 const IssuesPage = async ({ searchParams }: Props) => {
+  const columns: {
+    label: string;
+    value: keyof Issue;
+    className?: string;
+  }[] = [
+    { label: "Issue", value: "title" },
+    { label: "Status", value: "status", className: "hidden md:table-cell" },
+    { label: "Created", value: "createdAt", className: "hidden md:table-cell" },
+  ];
+
   const statuses = Object.values(Status);
   const status = statuses.includes(searchParams.status)
     ? searchParams.status
@@ -24,13 +36,18 @@ const IssuesPage = async ({ searchParams }: Props) => {
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
-            <Table.RowHeaderCell>Issue</Table.RowHeaderCell>
-            <Table.RowHeaderCell className="hidden md:table-cell">
-              Status
-            </Table.RowHeaderCell>
-            <Table.RowHeaderCell className="hidden md:table-cell">
-              Created
-            </Table.RowHeaderCell>
+            {columns.map((column) => (
+              <Table.RowHeaderCell key={column.value}>
+                <NextLink
+                  href={{
+                    query: { ...searchParams, orderBy: column.value },
+                  }}
+                >
+                  {column.value}
+                </NextLink>
+                {column.value === searchParams.orderBy && <ArrowUpIcon className="inline"/>}
+              </Table.RowHeaderCell>
+            ))}
           </Table.Row>
         </Table.Header>
         <Table.Body>
