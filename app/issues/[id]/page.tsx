@@ -3,10 +3,11 @@ import prisma from "@/prisma/client";
 import { Box, Flex, Grid } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
+import AssigneeSelect from "./AssigneeSelect";
 import DeleteIssueButton from "./DeleteIssueButton";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
-import AssigneeSelect from "./AssigneeSelect";
+import { describe } from "node:test";
 interface Props {
   params: { id: string };
 }
@@ -26,15 +27,26 @@ const IssueDetailPage = async ({ params }: Props) => {
       <Box className="lg:col-span-4">
         <IssueDetails issue={issue} />
       </Box>
-      {session && <Box>
-        <Flex direction="column" gap="4">
-          <AssigneeSelect issue={issue}/>
-          <EditIssueButton issueId={issue.id} />
-          <DeleteIssueButton issueId={issue.id} />
-        </Flex>
-      </Box>}
+      {session && (
+        <Box>
+          <Flex direction="column" gap="4">
+            <AssigneeSelect issue={issue} />
+            <EditIssueButton issueId={issue.id} />
+            <DeleteIssueButton issueId={issue.id} />
+          </Flex>
+        </Box>
+      )}
     </Grid>
   );
 };
+
+export async function generateMetadata({ params }: Props) {
+  const issue = await prisma.issue.findUnique({ where: { id: parseInt(params.id) } });
+
+  return {
+    title : issue?.title,
+    description: 'Detail of issue ' + issue?.id
+  }
+}
 
 export default IssueDetailPage;
