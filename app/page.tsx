@@ -1,15 +1,10 @@
-import Pagination from "./components/Pagination";
+import React from 'react'
+import LatestIssues from './LatestIssues'
 
-export default function Home({
-  searchParams,
-}: {
-  searchParams: { page: string };
-}) {
+const HomePage = () => {
   return (
-    <Pagination
-      itemCount={100}
-      pageSize={10}
-      currentPage={parseInt(searchParams.page)}
-    />
-  );
+    <LatestIssues />
+  )
 }
+
+export default HomePage
